@@ -1,0 +1,5 @@
+.DS_Store
+.rasa
+models/
+actions/__pycache__
+actions/__init__.py
