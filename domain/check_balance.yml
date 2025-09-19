@@ -1,6 +1,5 @@
 version: "3.1"
 slots:
-
   account_id_from_user:
     type: text
     mappings:
@@ -68,6 +67,7 @@ responses:
         Let's proceed.
   utter_provide_balance:
     - text: "Your current balance is {balance} euros"
+    
 
   
 actions:

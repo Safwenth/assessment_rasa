@@ -5,7 +5,8 @@ slots:
     type: text
     mappings:
       - type: from_llm
-    initial_value: 123 # this is manually set here as we usually get this from the an API call
+    initial_value: 125
+     # this is manually set here as we usually get this from the an API call
 
 responses:
 

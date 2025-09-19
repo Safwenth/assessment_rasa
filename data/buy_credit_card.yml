@@ -1,0 +1,18 @@
+flows:
+  buy_credit_card:
+    description: buy a new credit card for the user
+    steps:
+      - collect: credit_card_type
+      - collect: delivery_type
+      - collect: home_address
+      - action: utter_info_summary
+      - collect: confirmation_info
+        ask_before_filling: True
+        next:
+        - if: slots.confirmation_info
+          then: 
+            - action: utter_card_will_be_delivered
+              next: "END"
+        - else:
+          - action: utter_human_support
+            next: "END"

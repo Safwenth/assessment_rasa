@@ -1,0 +1,76 @@
+version: "3.1"
+slots:
+  credit_card_type: 
+    type: text
+    mappings:
+      - type: from_llm
+
+  delivery_type:
+    type: text
+    mappings:
+      - type: from_llm
+
+  home_address:
+    type: text
+    mappings:
+      - type: from_llm
+
+  confirmation_info:
+    type: bool
+    mappings:
+      - type: from_llm
+
+
+responses:      
+  utter_ask_credit_card_type:
+    - text: |
+        certainly, i can help you with that.          
+        what kind of credit card you are looking to buy
+      buttons:
+        - title: "Visa"
+          payload: "/SetSlots(credit_card_type=Visa)"
+        - title: "Master card"
+          payload: "/SetSlots(credit_card_type=Master card)"
+        - title: "American express"
+          payload: "/SetSlots(credit_card_type=American express)"
+
+  utter_ask_delivery_type:
+    - text: |
+        Okay let's move to the next step of the credit card purchase   
+        Would you like your new credit card to be delivered 
+      buttons:
+        - title: "at home"
+          payload: "/SetSlots(delivery_type = Home)"
+        - title: "to the closest bank near you"
+          payload: "/SetSlots(delivery_type = The closest bank near you)"
+
+  utter_ask_home_address:
+    - text: |
+        Understood! 
+        can you provide me your full address
+
+  utter_info_summary:
+    - text: |
+        let's make sure all information provided are in order 
+        Credit card type : {credit_card_type}
+        Delivery type: {delivery_type} 
+        Home address: {home_address} 
+  utter_ask_confirmation_info:
+    - text: |
+        can you confirm that information capture above is accurate:
+      buttons:
+        - title: "Yes"
+          payload: "/SetSlots(confirmation_info=True)"
+        - title: "No"
+          payload: "/SetSlots(confirmation_info=False)"
+
+  utter_card_will_be_delivered:
+    - text: |
+        Your card will be delivered to {delivery_type} in few days
+  
+  utter_human_support:
+    - text: |
+        It seems like I'm not able to help you full. 
+        Let me connect you to our human support managers. 
+        They will help you further! Please hold on while I connect you to our expert 📲
+
