@@ -6,13 +6,13 @@ flows:
       - collect: delivery_type
       - collect: home_address
       - action: utter_info_summary
-      - collect: confirmation_info
+      - collect: confirm_recap
         ask_before_filling: True
         next:
-        - if: slots.confirmation_info
+        - if: slots.confirm_recap
           then: 
             - action: utter_card_will_be_delivered
               next: "END"
         - else:
-          - action: utter_human_support
+          - action: utter_more_help_needed_handoff_pattern
             next: "END"

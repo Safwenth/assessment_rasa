@@ -15,7 +15,7 @@ slots:
     mappings:
       - type: from_llm
 
-  confirmation_info:
+  confirm_recap:
     type: bool
     mappings:
       - type: from_llm
@@ -55,22 +55,17 @@ responses:
         Credit card type : {credit_card_type}
         Delivery type: {delivery_type} 
         Home address: {home_address} 
-  utter_ask_confirmation_info:
+  utter_ask_confirm_recap:
     - text: |
         can you confirm that information capture above is accurate:
       buttons:
         - title: "Yes"
-          payload: "/SetSlots(confirmation_info=True)"
+          payload: "/SetSlots(confirm_recap=True)"
         - title: "No"
-          payload: "/SetSlots(confirmation_info=False)"
+          payload: "/SetSlots(confirm_recap=False)"
 
   utter_card_will_be_delivered:
     - text: |
         Your card will be delivered to {delivery_type} in few days
   
-  utter_human_support:
-    - text: |
-        It seems like I'm not able to help you full. 
-        Let me connect you to our human support managers. 
-        They will help you further! Please hold on while I connect you to our expert 📲
 
