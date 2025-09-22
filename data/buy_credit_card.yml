@@ -14,5 +14,5 @@ flows:
             - action: utter_card_will_be_delivered
               next: "END"
         - else:
-          - action: utter_more_help_needed_handoff_pattern
+          - action: action_handoff
             next: "END"

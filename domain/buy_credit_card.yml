@@ -67,5 +67,9 @@ responses:
   utter_card_will_be_delivered:
     - text: |
         Your card will be delivered to {delivery_type} in few days
+
+actions:
+  - action_handoff
+
   
 
